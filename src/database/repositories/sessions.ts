@@ -12,11 +12,7 @@ const findByEmail = async (email: string): Promise<User> => {
             }
         })
     } catch(e) {
-        console.log('Deal with this error')
-    }
-
-    if (!user) {
-        console.log('Throw new error')
+        throw new Error('Prisma error')
     }
 
     return user
@@ -32,11 +28,7 @@ const createUser = async (credentials: User): Promise<User> => {
             }
         })
     } catch(e) {
-        console.log('Deal with this error')
-    }
-
-    if (!user) {
-        console.log('Throw new error')
+        throw new Error('Prisma error')
     }
 
     return user
