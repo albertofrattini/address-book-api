@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  usersdb:
+    image: postgres:latest
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=usersdb
+    ports:
+      - 5432:5432
+    volumes:
+      - usersdb:/var/lib/postgresql/data
+
+volumes:
+  usersdb: 
+    driver: local
