@@ -8,7 +8,11 @@
     "npm": ">=8"
   },
   "scripts": {
-    "dev": "nodemon src/index.ts"
+    "dev": "nodemon src/api/index.ts",
+    "build": "TODO",
+    "test": "mocha",
+    "infra": "docker-compose up -d",
+    "infra:stop": "docker-compose down"
   },
   "keywords": [],
   "author": "",
@@ -30,6 +34,7 @@
     "typescript": "^4.7.4"
   },
   "dependencies": {
+    "@prisma/client": "^4.1.1",
     "kcors": "^2.2.2",
     "koa": "^2.13.4",
     "koa-body": "^5.0.0",
@@ -38,5 +43,8 @@
     "koa-helmet": "^6.1.0",
     "koa-router": "^12.0.0",
     "prisma": "^4.1.1"
+  },
+  "prisma": {
+    "schema": "src/database/models/schema.prisma"
   }
 }
