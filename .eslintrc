@@ -6,15 +6,16 @@
         "sourceType": "module"
     },
     "rules": {
-        "@typescript-eslint/explicit-function-return-type": "off",
+        "@typescript-eslint/explicit-function-return-type": 0,
         "@typescript-eslint/no-explicit-any": 1,
         "@typescript-eslint/no-inferrable-types": [
-            "warn",
+            1,
             {
                 "ignoreParameters": true
             }
         ],
-        "@typescript-eslint/no-unused-vars": "warn",
-        "@typescript-eslint/ban-types": 0
+        "@typescript-eslint/no-unused-vars": 1,
+        "@typescript-eslint/ban-types": 0,
+        "no-console": 1
     }
 }

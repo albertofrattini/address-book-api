@@ -5,14 +5,12 @@ import * as controllers from '../controllers/v1'
 const router = new Router<{}, Context>()
 router.prefix('/v1')
 
-/* ----- users ----- */
-router.post('/users', controllers.users.getAll)
-router.get('/users/me', controllers.users.getAll)
-
 /* ----- addresses ----- */
-router.post('/addresses', controllers.addresses.getAll)
+router.post('/addresses', controllers.addresses.create)
 
 /* ----- sessions ----- */
-router.get('/sessions', controllers.sessions.getAll)
+router.post('/signup', controllers.sessions.signup)
+router.post('/login', controllers.sessions.login)
+router.get('/logout', controllers.sessions.logout)
 
 export const v1Routes = router.routes()
