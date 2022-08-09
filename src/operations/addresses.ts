@@ -1,5 +1,6 @@
-import * as addressesRepository from '../database/repositories/addresses'
+import addressesRepository from '../database/repositories/addresses'
+import type { Contact } from '../@types/index'
 
-export const create = async () => {
-    // TODO: implement call to database repository for firebase
+export const create = async (contact: Contact) => {
+    return addressesRepository.createRecord(contact)
 }
