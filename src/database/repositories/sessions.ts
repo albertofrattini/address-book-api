@@ -34,7 +34,12 @@ const createUser = async (credentials: User): Promise<User> => {
     return user
 }
 
+const deleteAllEntries = async (): Promise<void> => {
+    await prisma.user.deleteMany({})
+}
+
 export default {
     findByEmail,
-    createUser
+    createUser,
+    deleteAllEntries
 }

@@ -10,7 +10,7 @@
   "scripts": {
     "dev": "nodemon src/api/index.ts",
     "build": "TODO",
-    "test": "mocha",
+    "test": "mocha --exit -r ts-node/register test/**/*.test.ts",
     "infra": "docker-compose up -d",
     "infra:stop": "docker-compose down"
   },
@@ -19,13 +19,16 @@
   "license": "ISC",
   "devDependencies": {
     "@types/bcrypt": "^5.0.0",
+    "@types/chai": "^4.3.3",
     "@types/firebase": "^3.2.1",
     "@types/jsonwebtoken": "^8.5.8",
     "@types/kcors": "^2.2.6",
     "@types/koa": "^2.13.5",
     "@types/koa-compress": "^4.0.3",
     "@types/koa-router": "^7.4.4",
+    "@types/mocha": "^9.1.1",
     "@types/node": "^18.6.4",
+    "@types/supertest": "^2.0.12",
     "@typescript-eslint/eslint-plugin": "^5.32.0",
     "@typescript-eslint/parser": "^5.32.0",
     "chai": "^4.3.6",
