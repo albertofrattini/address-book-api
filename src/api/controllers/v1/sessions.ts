@@ -3,6 +3,7 @@ import compose from 'koa-compose'
 import * as operations from '../../../operations/sessions'
 import { validate } from '../../validations/sessions'
 import type { User } from '../../../@types/index'
+import logger from '../../../utils/logger'
 
 export const signup = compose([
     validate,
@@ -12,7 +13,7 @@ export const signup = compose([
             password: ctx.request.body.password
         } as User
 
-        // TODO: logger
+        logger.info('POST /signup with email ' + credentials.email)
         ctx.body = await operations.signup(credentials)
         ctx.status = 201
     }
@@ -26,6 +27,7 @@ export const login = compose([
             password: ctx.request.body.password
         } as User
 
+        logger.info('POST /login with email ' + credentials.email)
         ctx.body = await operations.login(credentials)
         ctx.status = 200
     }
