@@ -83,13 +83,6 @@ jobs:
         run: npm run db:migrate-prod
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
-          FB_API_KEY: ${{ secrets.FB_API_KEY }}
-          FB_AUTH_DOMAIN: ${{ secrets.FB_AUTH_DOMAIN }}
-          FB_PROJECT_ID: ${{ secrets.FB_PROJECT_ID }}
-          FB_STORAGE_BUCKET: ${{ secrets.FB_STORAGE_BUCKET }}
-          FB_MESSAGING_SENDER: ${{ secrets.FB_MESSAGING_SENDER }}
-          FB_APP_ID: ${{ secrets.FB_APP_ID }}
-          FB_MEASUREMENT_ID: ${{ secrets.FB_MEASUREMENT_ID }}
       - uses: akhileshns/heroku-deploy@v3.12.12
         with:
           heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
