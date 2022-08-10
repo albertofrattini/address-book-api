@@ -2,6 +2,7 @@ import crypto from 'crypto'
 import * as bcrypt from 'bcrypt'
 import * as jwt from 'jsonwebtoken'
 import config from '../config'
+import * as appErrors from '../utils/errors'
 
 const pepperify = (password: string) => {
     return crypto.createHmac('sha1', config.auth.secret).update(password).digest('hex')
@@ -30,8 +31,8 @@ export const compareAccessToken = (token: string) => {
         return result
     } catch (e) {
         if (e instanceof jwt.JsonWebTokenError || e instanceof SyntaxError) {
-            throw new Error(e.message)
+            throw new appErrors.InternalServerError()
         }
-        throw new Error(e.message)
+        throw new appErrors.UnauthorizedError()
     }
 }

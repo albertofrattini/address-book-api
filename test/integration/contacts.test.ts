@@ -48,7 +48,7 @@ describe('Contacts requests', () => {
         it('Token is necessary for authorization', async () => {
             const response = await request.post('/v1/contacts').send(mockData)
     
-            expect(response.status).to.equal(404)
+            expect(response.status).to.equal(400)
             expect(stub.notCalled).to.be.true
             expect(response.body.message).not.to.be.undefined  
         })
@@ -60,7 +60,7 @@ describe('Contacts requests', () => {
                 address: mockData.address
             }).set({ 'x-access-token': token })
     
-            expect(response.status).to.equal(404)
+            expect(response.status).to.equal(400)
             expect(stub.notCalled).to.be.true
             expect(response.body.message).not.to.be.undefined        
         })
@@ -72,7 +72,7 @@ describe('Contacts requests', () => {
                 address: mockData.address
             }).set({ 'x-access-token': token })
     
-            expect(response.status).to.equal(404)
+            expect(response.status).to.equal(400)
             expect(stub.notCalled).to.be.true
             expect(response.body.message).not.to.be.undefined        
         })
@@ -84,7 +84,7 @@ describe('Contacts requests', () => {
                 address: mockData.address
             }).set({ 'x-access-token': token })
     
-            expect(response.status).to.equal(404)
+            expect(response.status).to.equal(400)
             expect(stub.notCalled).to.be.true
             expect(response.body.message).not.to.be.undefined        
         })
@@ -96,7 +96,7 @@ describe('Contacts requests', () => {
                 phoneNumber: mockData.phoneNumber
             }).set({ 'x-access-token': token })
     
-            expect(response.status).to.equal(404)
+            expect(response.status).to.equal(400)
             expect(stub.notCalled).to.be.true
             expect(response.body.message).not.to.be.undefined        
         })

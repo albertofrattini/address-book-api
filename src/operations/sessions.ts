@@ -1,12 +1,13 @@
 import sessionsRepository from '../database/repositories/sessions'
 import type { User, AuthenticatedUser, DbUser } from '../@types/index'
 import { hashPassword, comparePassword, generateAccessToken } from '../utils/crypto'
+import * as appErrors from '../utils/errors'
 
 export const signup = async (credentials: User) => {
     const user: DbUser = await sessionsRepository.findByEmail(credentials.email)
 
     if (user) {
-        throw new Error('User already exists')
+        throw new appErrors.ConflictError('User already exists')
     }
 
     const hashedCredentials = {
@@ -29,12 +30,12 @@ export const login = async (credentials: User) => {
     const user: DbUser = await sessionsRepository.findByEmail(credentials.email)
 
     if (!user) {
-        throw new Error('No user with this email')
+        throw new appErrors.NotFoundError('Email not found')
     }
     
     const isCorrect = await comparePassword(credentials.password, user.password)
     if (!isCorrect) {
-        throw new Error('Wrong password')
+        throw new appErrors.NotFoundError('Password is wrong')
     }
 
     const token = generateAccessToken(user.id)

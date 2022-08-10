@@ -51,7 +51,7 @@ describe('Sessions requests', () => {
     
             const response = await request.post('/v1/signup').send(mockData)
     
-            expect(response.status).to.equal(404)
+            expect(response.status).to.equal(409)
             expect(response.body.message).to.not.be.undefined
         })
 
@@ -61,7 +61,7 @@ describe('Sessions requests', () => {
     
             const response = await request.post('/v1/signup').send({ email: mockData.email })
     
-            expect(response.status).to.equal(404)
+            expect(response.status).to.equal(400)
             expect(response.body.message).not.to.be.undefined
     
             const newUser = await sessionsRepository.findByEmail(mockData.email)
@@ -74,7 +74,7 @@ describe('Sessions requests', () => {
     
             const response = await request.post('/v1/signup').send({ password: mockData.password })
     
-            expect(response.status).to.equal(404)
+            expect(response.status).to.equal(400)
             expect(response.body.message).not.to.be.undefined
     
             const newUser = await sessionsRepository.findByEmail(mockData.email)
@@ -112,7 +112,7 @@ describe('Sessions requests', () => {
         it('Missing password from body throws error', async () => {
             const response = await request.post('/v1/login').send({ email: mockData.email })
     
-            expect(response.status).to.equal(404)
+            expect(response.status).to.equal(400)
             expect(response.body.message).not.to.be.undefined
         })
 
@@ -133,7 +133,7 @@ describe('Sessions requests', () => {
         it('Missing email from body throws error', async () => {
             const response = await request.post('/v1/login').send({ password: mockData.password })
     
-            expect(response.status).to.equal(404)
+            expect(response.status).to.equal(400)
             expect(response.body.message).not.to.be.undefined
         })
     })

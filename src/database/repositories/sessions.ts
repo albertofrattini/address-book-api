@@ -1,5 +1,6 @@
 import { PrismaClient } from '@prisma/client'
 import type { DbUser, User } from '../../@types/index'
+import * as appErrors from '../../utils/errors'
 
 const prisma = new PrismaClient()
 
@@ -12,7 +13,7 @@ const findByEmail = async (email: string): Promise<DbUser> => {
             }
         })
     } catch(e) {
-        throw new Error('Prisma error')
+        throw new appErrors.InternalServerError()
     }
 
     return user
@@ -28,7 +29,7 @@ const createUser = async (credentials: User): Promise<DbUser> => {
             }
         })
     } catch(e) {
-        throw new Error('Prisma error')
+        throw new appErrors.InternalServerError()
     }
 
     return user
