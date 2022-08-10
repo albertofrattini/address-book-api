@@ -41,5 +41,5 @@ const deleteAllEntries = async (): Promise<void> => {
 export default {
     findByEmail,
     createUser,
-    deleteAllEntries
+    deleteAllEntries,
 }

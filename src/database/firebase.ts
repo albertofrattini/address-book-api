@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app'
-import { getFirestore } from 'firebase/firestore'
+import { getFirestore, terminate } from 'firebase/firestore'
 
 // TODO: hide this
 const firebaseConfig = {
@@ -13,4 +13,10 @@ const firebaseConfig = {
 }
 
 const app = initializeApp(firebaseConfig)
+
 export const db = getFirestore(app)
+export default {
+    terminate: async (): Promise<void> => {
+        await terminate(db)
+    }
+}
