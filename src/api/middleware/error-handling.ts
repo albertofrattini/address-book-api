@@ -4,7 +4,7 @@ export const handleErrors = async (ctx: Context, next: () => Promise<void>): Pro
     try {
       await next()
     } catch (err) {
-        ctx.status = 400
+        ctx.status = 404
         ctx.body = {
             message: err.message,
         }

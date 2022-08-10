@@ -12,9 +12,9 @@ npm run dev
 
 #### TODO
 - Add documentation with swagger
-- Add test coverage script and write more tests to cover all possible scenarios
 - Introduce usage of logging where missing
 - Make errors more descriptive and upgrade error handling
+- Make all returned statuses correct
 - Hide firebase config
 - Increase the type coverage across the application
 - Make all routes covered: 404 if doesn't exist

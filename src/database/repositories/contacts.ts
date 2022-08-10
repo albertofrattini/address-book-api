@@ -4,8 +4,7 @@ import type { Contact } from '../../@types/index'
 
 const createRecord = async (contact: Contact) => {
     try {
-        const newDoc = await addDoc(collection(db, 'records'), contact)
-        return newDoc
+        await addDoc(collection(db, 'contacts'), contact)
     } catch (e) {
         throw new Error('Firebase error')
     }

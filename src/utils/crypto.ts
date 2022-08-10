@@ -1,7 +1,6 @@
 import crypto from 'crypto'
 import * as bcrypt from 'bcrypt'
 import * as jwt from 'jsonwebtoken'
-import type { User } from '../@types/index'
 import config from '../config'
 
 const pepperify = (password: string) => {
@@ -20,8 +19,8 @@ export const comparePassword = async (password: string, hashedPassword: string) 
     return isCorrect
 }
 
-export const generateAccessToken = (user: User) => {
-    const token = jwt.sign(user, config.auth.secret, config.auth.generateOptions)
+export const generateAccessToken = (userId: number) => {
+    const token = jwt.sign({ userId }, config.auth.secret, config.auth.generateOptions)
     return token
 }
 

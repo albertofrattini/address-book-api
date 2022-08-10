@@ -3,6 +3,12 @@ export type User = {
     password: string
 }
 
+export type DbUser = {
+    id: number,
+    email: string,
+    password: string
+}
+
 export type AuthenticatedUser = {
     email: string,
     accessToken: string

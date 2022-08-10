@@ -1,10 +1,10 @@
 import { PrismaClient } from '@prisma/client'
-import type { User } from '../../@types/index'
+import type { DbUser, User } from '../../@types/index'
 
 const prisma = new PrismaClient()
 
-const findByEmail = async (email: string): Promise<User> => {
-    let user: User | undefined
+const findByEmail = async (email: string): Promise<DbUser> => {
+    let user: DbUser | undefined
     try {
         user = await prisma.user.findFirst({
             where: {
@@ -18,8 +18,8 @@ const findByEmail = async (email: string): Promise<User> => {
     return user
 }
 
-const createUser = async (credentials: User): Promise<User> => {
-    let user: User | undefined
+const createUser = async (credentials: User): Promise<DbUser> => {
+    let user: DbUser | undefined
     try {
         user = await prisma.user.create({
             data: {
