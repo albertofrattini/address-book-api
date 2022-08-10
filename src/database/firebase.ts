@@ -1,5 +1,6 @@
 import { initializeApp } from 'firebase/app'
 import { getFirestore, terminate } from 'firebase/firestore'
+import logger from '../utils/logger'
 
 // TODO: hide this
 const firebaseConfig = {
@@ -12,6 +13,7 @@ const firebaseConfig = {
     measurementId: "G-22XG8MT6BB"
 }
 
+logger.info('Initializing firebase database')
 const app = initializeApp(firebaseConfig)
 
 export const db = getFirestore(app)

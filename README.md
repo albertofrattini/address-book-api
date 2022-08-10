@@ -12,6 +12,5 @@ npm run dev
 
 #### TODO
 - Add documentation with swagger
-- Introduce usage of logging where missing
 - Hide firebase config
 - Increase the type coverage across the application

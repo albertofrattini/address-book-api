@@ -5,6 +5,7 @@ import * as appErrors from '../../utils/errors'
 
 export const validate = ({ body }: { body: jsonschema.Schema }) => {
     return async (ctx: Context, next: () => Promise<void>): Promise<void> => {
+        logger.info('Validating request body')
         const validator = new jsonschema.Validator()
 
         const validationErrors = validator.validate(ctx.request.body, body).errors

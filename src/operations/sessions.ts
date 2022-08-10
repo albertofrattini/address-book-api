@@ -16,7 +16,6 @@ export const signup = async (credentials: User) => {
     }
     const newUser: DbUser = await sessionsRepository.createUser(hashedCredentials)
 
-    // TODO: use userId
     const token = generateAccessToken(newUser.id)
     const result: AuthenticatedUser = {
         email: newUser.email,
