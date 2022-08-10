@@ -1,8 +1,8 @@
 import type { Context } from 'koa'
 import compose from 'koa-compose'
-import * as operations from '../../../operations/addresses'
+import * as operations from '../../../operations/contacts'
 import { validate } from '../../middleware/controller-validations'
-import * as schemas from '../../validations/schemas/addresses'
+import * as schemas from '../../validations/schemas/contacts'
 import isAuthorized from '../../middleware/authentication'
 import type { Contact } from '../../../@types/index'
 import logger from '../../../utils/logger'
@@ -19,7 +19,7 @@ export const create = compose([
             address: body.address
         } as Contact
 
-        logger.info('POST /addresses')
+        logger.info('POST /contacts')
         await operations.create(contact)
         ctx.body = contact
         ctx.status = 201

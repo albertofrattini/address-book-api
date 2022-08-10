@@ -18,4 +18,3 @@ npm run dev
 - Hide firebase config
 - Increase the type coverage across the application
 - Make all routes covered: 404 if doesn't exist
-- Consistent naming: Contacts
