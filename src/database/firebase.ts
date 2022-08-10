@@ -1,6 +1,7 @@
 import { initializeApp } from 'firebase/app'
 import { getFirestore } from 'firebase/firestore'
 
+// TODO: hide this
 const firebaseConfig = {
     apiKey: "AIzaSyCHjwurxdKN08l3MmYk6kr3Vr5Df5rvWUg",
     authDomain: "addressbook-api-66db9.firebaseapp.com",
