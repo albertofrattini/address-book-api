@@ -20,9 +20,6 @@ npm run infra
 npm run dev
 ```
 
-#### TODO
-- Hide firebase config
-
 ### API Example Utilization
 
 <table>
