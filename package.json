@@ -9,8 +9,14 @@
   },
   "scripts": {
     "dev": "nodemon src/api/index.ts",
-    "build": "TODO",
+    "build": "tsc -p .",
+    "start": "node dist/api/index.js",
     "test": "mocha --exit -r ts-node/register test/**/*.test.ts",
+    "lint": "eslint ./**/*.ts",
+    "lint:fix": "eslint --fix ./**/*.ts",
+    "db:migrate-dev": "prisma migrate dev --name init",
+    "db:migrate-prod": "prisma migrate deploy",
+    "db:push": "prisma db push",
     "infra": "docker-compose up -d",
     "infra:stop": "docker-compose down"
   },

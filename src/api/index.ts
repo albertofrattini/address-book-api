@@ -14,6 +14,9 @@ app.use(koaBody())
 
 app.use(v1Routes)
 
-app.listen(3000, () => console.log('Listening on PORT 3000'))
+app.listen(3000, () => {
+    // eslint-disable-next-line no-console
+    console.log('Listening on PORT 3000')
+})
 
 export default app
