@@ -1,12 +1,13 @@
 import type { Context } from 'koa'
 import compose from 'koa-compose'
 import * as operations from '../../../operations/sessions'
-import { validate } from '../../validations/sessions'
+import { validate } from '../../middleware/controller-validations'
+import * as schemas from '../../validations/schemas/sessions'
 import type { User } from '../../../@types/index'
 import logger from '../../../utils/logger'
 
 export const signup = compose([
-    validate,
+    validate({ body: schemas.signup }),
     async (ctx: Context): Promise<void> => {
         const credentials = { 
             email: ctx.request.body.email,
@@ -20,7 +21,7 @@ export const signup = compose([
 ])
 
 export const login = compose([
-    validate,
+    validate({ body: schemas.login }),
     async (ctx: Context): Promise<void> => {
         const credentials = {
             email: ctx.request.body.email,

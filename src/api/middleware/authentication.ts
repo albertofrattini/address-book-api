@@ -1,7 +1,7 @@
 import type { Context } from 'koa'
-import jwt from 'jsonwebtoken'
+import { compareAccessToken } from '../../utils/crypto'
 
-export const verifyToken = async (ctx: Context, next: () => Promise<void>) => {
+export default async (ctx: Context, next: () => Promise<void>) => {
     const token = ctx.request.body.token || ctx.request.headers['x-access-token']
 
     if (!token) {
@@ -9,9 +9,9 @@ export const verifyToken = async (ctx: Context, next: () => Promise<void>) => {
     }
 
     try {
-        jwt.verify(token, 'TODO:makethissecret')
+        compareAccessToken(token)
     } catch(e) {
-        throw new Error('Wrong provided token')
+        throw new Error(e.message)
     }
 
     await next()

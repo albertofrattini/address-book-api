@@ -31,8 +31,8 @@ export const compareAccessToken = (token: string) => {
         return result
     } catch (e) {
         if (e instanceof jwt.JsonWebTokenError || e instanceof SyntaxError) {
-            throw new Error('JSONWebToken error')
+            throw new Error(e.message)
         }
-        throw new Error('Token does not exist or expired')
+        throw new Error(e.message)
     }
 }
