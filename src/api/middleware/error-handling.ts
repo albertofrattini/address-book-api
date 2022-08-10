@@ -22,3 +22,7 @@ export const handleErrors = async (ctx: Context, next: () => Promise<void>): Pro
         }
     }
 }
+
+export const handleNotFound = async () => {
+    throw new appErrors.NotFoundError()
+}

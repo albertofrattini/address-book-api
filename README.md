@@ -15,4 +15,3 @@ npm run dev
 - Introduce usage of logging where missing
 - Hide firebase config
 - Increase the type coverage across the application
-- Make all routes covered: 404 if doesn't exist
