@@ -5,9 +5,12 @@ import koaCompress from 'koa-compress'
 import koaCors from 'kcors'
 import config from '../config'
 import { v1Routes } from './routes/v1'
+import { handleErrors, handleNotFound } from './middleware/error-handling'
 import logger from '../utils/logger'
 import type { Server } from 'net'
 import firebaseDb from '../database/firebase'
+import prismaDb from '../database/prisma'
+
 
 const app = new Koa();
 
@@ -16,7 +19,10 @@ app.use(koaCompress())
 app.use(koaCors())
 app.use(koaBody())
 
+app.use(handleErrors)
 app.use(v1Routes)
+app.use(handleNotFound)
+
 
 const services: { server: Server | null } = {
     server: null
@@ -31,6 +37,7 @@ const start = async (): Promise<void> => {
 const stop = async () => {
     logger.info('Stopping server...')
     await firebaseDb.terminate()
+    await prismaDb.terminate()
     services.server.close()
     logger.info('Server stopped')
 }

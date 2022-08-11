@@ -31,7 +31,7 @@ npm run dev
   </tr>  
   <tr>
     <td>POST</td>
-    <td><b>/signup</b></td>
+    <td><b>/v1/signup</b></td>
     <td>
     {
         "email": "example@example.com",
@@ -47,7 +47,7 @@ npm run dev
   </tr>
     <tr>
     <td>POST</td>
-    <td><b>/login</b></td>
+    <td><b>/v1/login</b></td>
     <td>
     {
     "email": "example@example.com",
@@ -63,7 +63,7 @@ npm run dev
   </tr>
 <tr>
     <td>POST</td>
-    <td><b>/contacts</b></td>
+    <td><b>/v1/contacts</b></td>
     <td>
     {
         headers: {

@@ -1,9 +1,7 @@
-import { PrismaClient } from '@prisma/client'
+import { prisma } from '../prisma'
 import type { DbUser, User } from '../../@types/index'
 import * as appErrors from '../../utils/errors'
 import logger from '../../utils/logger'
-
-const prisma = new PrismaClient()
 
 const findByEmail = async (email: string): Promise<DbUser> => {
     let user: DbUser | undefined
