@@ -14,9 +14,25 @@ This API was built as a result of the task and its specification given by STRV d
 
 ## Getting started
 
+### Local Development 
+
 ```sh
 npm install
+
+// Start postgres docker container
 npm run infra
+
+// Push the schema to the database
+npm run db:push
+
+npm run dev
+```
+
+### Running Tests
+
+Firstly, ensure you have ran `npm run infra` and `npm run db:push` to create the database and provide a schema to it. Afterwards, just run:
+
+```sh
 npm run dev
 ```
 
